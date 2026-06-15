@@ -1,46 +1,40 @@
-<img width="1280" height="854" alt="لوغو PNG" src="https://github.com/user-attachments/assets/4d686d27-ec18-447a-bbe2-2b2f294a939e" />
 <!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
   <title>معرض الشركة</title>
+
   <style>
     body {
       font-family: Arial;
       direction: rtl;
-      text-align: center;
-      background: #f5f5f5;
       margin: 0;
+      background: #f4f4f4;
+      text-align: center;
+    }
+
+    header {
+      background: #111;
+      color: white;
       padding: 20px;
     }
 
-    .header {
-      margin-bottom: 20px;
+    header img {
+      width: 120px;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
 
-    .company {
+    h1 {
+      margin: 10px 0 0;
       font-size: 28px;
-      font-weight: bold;
-    }
-
-    .whatsapp {
-      margin-top: 10px;
-    }
-
-    .whatsapp a {
-      background: #25D366;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 8px;
-      display: inline-block;
     }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      margin-top: 20px;
+      padding: 20px;
     }
 
     .gallery img {
@@ -50,62 +44,59 @@
       border-radius: 10px;
     }
 
-    input {
-      margin: 5px;
-      padding: 8px;
-      width: 250px;
+    /* زر واتساب ثابت */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #25D366;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .whatsapp:hover {
+      background: #1ebe5d;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <input type="text" id="companyName" placeholder="اسم الشركة">
-    <br>
-    <input type="text" id="whatsappNumber" placeholder="رقم الواتساب (مثال: 905xxxxxxxxx)">
-    <br><br>
-    <input type="file" id="images" multiple accept="image/*">
+  <!-- الهيدر -->
+  <header>
+    <!-- شعار الشركة -->
+    <img src="logo.png" alt="Logo">
+
+    <!-- اسم الشركة -->
+    <h1>اسم الشركة</h1>
+  </header>
+
+  <!-- معرض الصور -->
+  <div class="gallery">
+
+    <img src="img1.jpg">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+    <img src="img4.jpg">
+    <img src="img5.jpg">
+    <img src="img6.jpg">
+    <img src="img7.jpg">
+    <img src="img8.jpg">
+    <img src="img9.jpg">
+    <img src="img10.jpg">
+    <img src="img11.jpg">
+    <img src="img12.jpg">
+
   </div>
 
-  <div class="company" id="title">اسم الشركة</div>
-
-  <div class="whatsapp" id="wa"></div>
-
-  <div class="gallery" id="gallery"></div>
-
-  <script>
-    const imagesInput = document.getElementById("images");
-    const gallery = document.getElementById("gallery");
-    const title = document.getElementById("title");
-    const wa = document.getElementById("wa");
-
-    document.getElementById("companyName").addEventListener("input", function() {
-      title.innerText = this.value || "اسم الشركة";
-    });
-
-    document.getElementById("whatsappNumber").addEventListener("input", function() {
-      if (this.value) {
-        wa.innerHTML = `<a href="https://wa.me/${this.value}" target="_blank">تواصل واتساب</a>`;
-      }
-    });
-
-    imagesInput.addEventListener("change", function() {
-      gallery.innerHTML = "";
-      const files = Array.from(this.files).slice(0, 12);
-
-      files.forEach(file => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const img = document.createElement("img");
-          img.src = e.target.result;
-          gallery.appendChild(img);
-        }
-        reader.readAsDataURL(file);
-      });
-    });
-  </script>
+  <!-- زر واتساب -->
+  <a class="whatsapp" href="https://wa.me/905xxxxxxxxx" target="_blank">
+    واتساب
+  </a>
 
 </body>
 </html>
-<img src="logo.png" width="150"> <img width="1280" height="854" alt="لوغو PNG" src="https://github.com/user-attachments/assets/e3f44656-1bc8-4064-9dbb-b701c3e0251c" />
